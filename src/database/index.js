@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+require('dotenv').config();
 const configOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -7,7 +7,7 @@ const configOptions = {
 
 const connectToDB = async () => {
   const connectionUrl =
-    "mongodb+srv://yasser:1234@cluster0.zg8f33v.mongodb.net/nexte-commerce?retryWrites=true&w=majority";
+    process.env.MONGO_URL;
 
   mongoose
     .connect(connectionUrl, configOptions)
